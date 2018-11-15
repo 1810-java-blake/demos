@@ -1,7 +1,8 @@
 import axios from 'axios';
+import { environment } from '../Environment';
 
 const LeagueClient = axios.create({
-  baseURL: 'http://localhost:8080/LeagueOfLegendsApi/',
+  baseURL: environment.leagueContext,
   headers: {
     'Content-Type': 'application/json'
   },
