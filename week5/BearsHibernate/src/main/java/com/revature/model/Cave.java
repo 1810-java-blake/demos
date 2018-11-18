@@ -1,11 +1,18 @@
 package com.revature.model;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
 public class Cave {
 	@Id
@@ -19,16 +26,24 @@ public class Cave {
 	@Column(name = "cavetype")
 	private String caveType;
 
+	// mapped by the field name from the Many to One side
+	// works many to many also where you define it on one side and use mapped by on
+	// the other
+	@OneToMany(mappedBy = "cave")
+	@JsonIgnore
+	private Set<Bear> bears;
+
 	public Cave() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Cave(int id, double squareFootage, String caveType) {
+	public Cave(int id, double squareFootage, String caveType, Set<Bear> bears) {
 		super();
 		this.id = id;
 		this.squareFootage = squareFootage;
 		this.caveType = caveType;
+		this.bears = bears;
 	}
 
 	public int getId() {
@@ -53,6 +68,14 @@ public class Cave {
 
 	public void setCaveType(String caveType) {
 		this.caveType = caveType;
+	}
+
+	public Set<Bear> getBears() {
+		return bears;
+	}
+
+	public void setBears(Set<Bear> bears) {
+		this.bears = bears;
 	}
 
 	@Override

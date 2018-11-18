@@ -15,6 +15,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 @Entity
 @Table(name = "bears")
 public class Bear {
@@ -27,11 +30,12 @@ public class Bear {
 	private String breed;
 	private int legs;
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	// @ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "cave_id")
 	private Cave cave;
 
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany
 	@JoinTable(name = "parent_cub", joinColumns = @JoinColumn(name = "parent_id"), inverseJoinColumns = @JoinColumn(name = "cub_id"))
 	private Set<Bear> cubs = new HashSet<>();
 
@@ -137,8 +141,7 @@ public class Bear {
 
 	@Override
 	public String toString() {
-		return "Bear [id=" + id + ", color=" + color + ", breed=" + breed + ", legs=" + legs + ", cave=" + cave
-				+ ", cubs=" + cubs + "]";
+		return "Bear [id=" + id + ", color=" + color + ", breed=" + breed + ", legs=" + legs + ", cave=" + cave + "]";
 	}
 
 }
