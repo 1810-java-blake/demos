@@ -1,5 +1,5 @@
 const dev = {
-  leagueContext: "http://localhost:8080/LeagueOfLegendsApi/"
+  leagueContext: "http://localhost:8088/"
 };
 
 const prod = {
