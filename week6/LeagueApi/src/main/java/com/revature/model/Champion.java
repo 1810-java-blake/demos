@@ -1,8 +1,26 @@
 package com.revature.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@Entity
+@Table(name = "champions")
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Champion {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "champion_id")
 	private int id;
+	@Column(name = "champion_name", nullable=false, unique=true)
 	private String name;
+	@Column(name = "champion_role", nullable=false)
 	private String role;
 
 	public Champion() {

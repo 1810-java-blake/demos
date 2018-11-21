@@ -53,9 +53,9 @@ public class ChampionController {
 //		throw new NullPointerException();
 	}
 
-	@GetMapping("cost/{cost}/role/{role}")
-	public List<Champion> findByCostAndRole(@PathVariable int cost, @PathVariable String role) {
-		return cs.findByCostAndRole(cost, role);
+	@GetMapping("role/{role}")
+	public List<Champion> findByRole(@PathVariable String role) {
+		return cs.findByRole(role);
 	}
 
 	@PostMapping
