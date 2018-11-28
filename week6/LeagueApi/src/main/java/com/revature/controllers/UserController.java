@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.revature.model.AppUser;
 import com.revature.services.UserService;
 
+
 @RestController
 @RequestMapping(path = "users")
 public class UserController {

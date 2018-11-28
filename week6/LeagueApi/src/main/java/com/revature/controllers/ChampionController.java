@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -43,7 +44,7 @@ public class ChampionController {
 	}
 
 	@GetMapping("{id}")
-	public ResponseEntity<Champion> findById(@PathVariable int id, HttpServletRequest req) {
+	public ResponseEntity<Champion> findById(@PathVariable int id, HttpServletRequest req, @RequestHeader("Authentication") String authToken) {
 //		req.getSession().setAttribute("test", "test"); // you can do this if you want sessions
 		
 		// user response entity if you want finer controller over the resp

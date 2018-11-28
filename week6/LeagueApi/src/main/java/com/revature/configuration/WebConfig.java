@@ -16,7 +16,7 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addMapping("/**") // all endpoints in the api
             .allowedOrigins("http://localhost:9001", "http://localhost:3000") // allow this origin
             .allowedMethods("PUT", "DELETE", "GET", "OPTIONS", "POST", "PATCH")
-//            .allowedHeaders("header1", "header2", "header3")
+            .allowedHeaders("header1", "header2", "Authentication")
 //            .exposedHeaders("header1", "header2")
             .allowCredentials(true);
 	}
