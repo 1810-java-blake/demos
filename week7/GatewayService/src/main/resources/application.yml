@@ -6,6 +6,10 @@ zuul:  routes:    users:
       path: /users/**
       serviceId: user-service
       strip-prefix: false
+    accounts:
+      path: /accounts/**
+      serviceId: account-service
+      strip-prefix: false
   
   
 eureka:  client:    service-url:      defaultZone: http://localhost:8888/eureka/
