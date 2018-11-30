@@ -1,0 +1,6 @@
+server:
+  port: 0
+
+spring:  cloud:    config:      name: user-service
+      fail-fast: true
+      uri: http://localhost:9000

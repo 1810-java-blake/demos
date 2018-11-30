@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.revature.model.Account;
 
-@FeignClient("account-service")
+@FeignClient(name="account-service", fallback=AccountClientFallback.class)
 public interface AccountClient {
 	@GetMapping("/accounts/owner/{id}")
 	List<Account> getAccountsByOwner(@PathVariable("id") int id);

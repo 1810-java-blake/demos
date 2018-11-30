@@ -4,6 +4,10 @@ server:
 spring:
   application:
     name: user-service
+    
+feign:
+  hystrix:
+    enabled: true
 
 eureka:
   client:

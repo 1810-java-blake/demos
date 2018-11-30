@@ -1,0 +1,7 @@
+server:
+  port: 9000
+
+spring:  application:    name: config-server
+  cloud:    config:      server:        git:          uri: https://github.com/btkruppa/config-server.git
+          
+eureka:  client:    service-url:      defaultZone: http://localhost:8888/eureka
