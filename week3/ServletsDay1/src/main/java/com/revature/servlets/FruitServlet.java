@@ -35,7 +35,7 @@ public class FruitServlet extends HttpServlet {
 		System.out.println("retreiving all fruit");
 //		List<Fruit> fruits = fs.findAll();
 		List<Fruit> fruits = new ArrayList<Fruit>();
-		fruits.add(new Fruit(1, "Mango", "Orange", 8));
+		fruits.add(new Fruit(1, "Mango", "Orange", 7));
 		fruits.add(new Fruit(2, "Pineapple", "Yellow", 10));
 
 		ObjectMapper om = new ObjectMapper();
