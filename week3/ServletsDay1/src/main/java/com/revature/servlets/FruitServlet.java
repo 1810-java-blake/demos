@@ -2,6 +2,7 @@ package com.revature.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -32,7 +33,10 @@ public class FruitServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("retreiving all fruit");
-		List<Fruit> fruits = fs.findAll();
+//		List<Fruit> fruits = fs.findAll();
+		List<Fruit> fruits = new ArrayList<Fruit>();
+		fruits.add(new Fruit(1, "Mango", "Orange", 10));
+		fruits.add(new Fruit(2, "Pineapple", "Yellow", 10));
 
 		ObjectMapper om = new ObjectMapper();
 		String json = om.writeValueAsString(fruits);
